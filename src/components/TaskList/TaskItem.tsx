@@ -1,24 +1,20 @@
 import { List, TaskItemProps } from "@/src/types/list";
 import {
-    Table,
-    TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
-    TableHead,
-    TableHeader,
     TableRow,
 } from "../ui/table"
 import { Checkbox } from "../ui/checkbox";
 import { useMemo } from "react";
-import { Delete01Icon } from "hugeicons-react";
+import { Delete01Icon, Edit01Icon } from "hugeicons-react";
+import { Button } from "../ui/button";
 
-/**
- * TaskItem component, it displays a single task item.
- */
-export const TaskItem = ({ list, setList, item }: TaskItemProps) => {
+interface ExtendedTaskItemProps extends TaskItemProps {
+    onEdit: (task: List) => void;
+}
 
-    // Function that changes the status of a task from active to inactive and vice versa
+// TaskItem component, it displays a task item of a task item array with its status, name, description and actions
+export const TaskItem = ({ list, setList, item, onEdit }: ExtendedTaskItemProps) => {
+    // Handler to trigger the status of a task, from pending to completed and vice versa
     const triggerStatus = (id: number) => {
         const updatedList: List[] = list.map((task) => {
             if (task.id === id) {
@@ -26,23 +22,22 @@ export const TaskItem = ({ list, setList, item }: TaskItemProps) => {
             }
             return task;
         });
-
         setList(updatedList);
     }
 
-    // Function that deletes a task
+    //Handler to delete a task
     const handleDelete = (id: number) => {
         setList(list.filter((t) => t.id !== id));
     }
 
-    // This useMemo hook calculates if the task is completed
+    //Memoized value to determine if the task is completed
     const isCompleted = useMemo(() => item.status === "completed", [item.status]);
 
     return (
         <TableRow key={item.id} className={`${isCompleted ? "opacity-50" : ""} relative`}>
-            <button onClick={() => triggerStatus(item.id)}>
+            <button onClick={() => triggerStatus(item.id)} className="py-3">
                 <TableCell className="flex flex-row items-center gap-3">
-                    <Checkbox checked={isCompleted} />
+                    <Checkbox checked={isCompleted}  />
                     {isCompleted ? "Completada" : "Pendiente"}
                 </TableCell>
             </button>
@@ -52,10 +47,16 @@ export const TaskItem = ({ list, setList, item }: TaskItemProps) => {
             <TableCell className={isCompleted ? "line-through" : ""}>
                 {item.description}
             </TableCell>
-            <button onClick={() => handleDelete(item.id)} className="absolute right-4 top-[50%] transform -translate-y-1/2">
-                <Delete01Icon />
-            </button>
+            <TableCell>
+                <div className="flex gap-2">
+                    <Button onClick={() => onEdit(item)} variant="outline" className="flex flex-row items-center gap-3">
+                        <Edit01Icon /> Editar
+                    </Button>
+                    <Button onClick={() => handleDelete(item.id)} variant="outline" className="flex flex-row items-center gap-3">
+                        <Delete01Icon /> Eliminar
+                    </Button>
+                </div>
+            </TableCell>
         </TableRow>
     )
 }
-
