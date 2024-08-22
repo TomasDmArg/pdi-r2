@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import { H1 } from "./components/ui/typographies";
+import { HelloWorld } from "./components/HelloWorld";
+
 import './App.css';
+import { PresentationCard } from "./components/PresentationCard";
+import { Counter } from "./components/Counter";
+import { TaskList } from "./components/TaskList/TaskList";
+import { Form } from "./components/Form/Form";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='p-12 flex flex-col gap-6'>
+      <H1>Inicio - R1</H1>
+      <HelloWorld />
+      <PresentationCard />
+      <Counter />
+      <TaskList />
+      <Form />
+    </main>
   );
 }
 
