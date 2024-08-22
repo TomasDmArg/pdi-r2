@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# PDI: Inicio - R1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Este es un trabajo práctico realizado en el marco de la materia Proyecto Diseño e Implementación, de la EEST N°5 "Amancio Williams". El proyecto consiste en una serie de componentes React que demuestran conceptos fundamentales de desarrollo frontend.
 
-In the project directory, you can run:
+## Requisitos previos
 
-### `npm start`
+- [Bun](https://bun.sh/) instalado en tu sistema
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalación
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clona este repositorio:
+   ```
+   git clone https://github.com/tu-usuario/pdi-inicio-r1.git
+   cd pdi-inicio-r1
+   ```
 
-### `npm test`
+2. Instala las dependencias:
+   ```
+   bun install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Inicia la aplicación:
+   ```
+   bun run dev
+   ```
 
-### `npm run build`
+4. Abre tu navegador y visita `http://localhost:3000`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Hola mundo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Ubicación: `src/components/HelloWorld.tsx`
+- Descripción: Un componente simple que muestra "Hola, mundo!"
 
-### `npm run eject`
+### 2. Tarjeta de presentación
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Ubicación: `src/components/PresentationCard.tsx`
+- Descripción: Una tarjeta de presentación con información personal que usa datos de ejemplo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Contador
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Ubicación: `src/components/Counter.tsx`
+- Descripción: Un contador interactivo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Lista de tareas
 
-## Learn More
+- Ubicación: `src/components/TodoList.tsx`
+- Descripción: Una lista de tareas interactiva
+- Características:
+  - Agregar nuevas tareas
+  - Marcar tareas como completadas
+  - Utiliza un array en el estado para almacenar las tareas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Formulario simple
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Ubicación: `src/components/SimpleForm.tsx`
+- Descripción: Un formulario para capturar el nombre del usuario
+- Características:
+  - Input para el nombre
+  - Muestra un mensaje de bienvenida al enviar
+  - Utiliza el estado para manejar el valor del input
+
+## Comandos útiles
+
+- `bun run dev`: Inicia el servidor de desarrollo
+- `bun run build`: Construye la aplicación para producción
+- `bun run lint`: Ejecuta el linter
