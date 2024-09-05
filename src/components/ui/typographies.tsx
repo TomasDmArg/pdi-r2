@@ -1,7 +1,7 @@
 import React from "react";
 
 // Text components
-interface HeadingProps extends React.ComponentPropsWithoutRef<"h1"> { }
+type HeadingProps = React.ComponentPropsWithoutRef<"h1">
 
 export function H1(props: HeadingProps) {
     return (
