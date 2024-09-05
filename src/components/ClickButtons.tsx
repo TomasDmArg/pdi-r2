@@ -96,7 +96,7 @@ export const ClickButtons: React.FC = (): JSX.Element => {
             <p>Los botones a continuación tienen diferentes animaciones de click y doble click</p>
           </motion.section>
           <motion.div
-            className="flex space-x-4 mb-4"
+            className="flex space-x-4 mb-4 flex-wrap"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}

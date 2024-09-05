@@ -54,7 +54,7 @@ export const ImageGallery: React.FC = (): JSX.Element => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col items-center justify-center gap-2"
+              className="flex flex-col items-center justify-center gap-2 text-center"
             >
                 <H2>Galería de imágenes</H2>
                 <p>Presione las flechas de izq o der, o deslice para ver todas las imágenes.</p>
@@ -64,7 +64,7 @@ export const ImageGallery: React.FC = (): JSX.Element => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Carousel className="w-full max-w-xl mx-auto">
+            <Carousel className="w-[70vw] md:w-full max-w-xl mx-auto">
               <CarouselContent>
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
@@ -72,7 +72,7 @@ export const ImageGallery: React.FC = (): JSX.Element => {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full min-h-[50vh] object-cover rounded-lg"
+                        className="w-full min-h-[20vh] md:min-h-[50vh] object-cover rounded-lg"
                       />
                     </div>
                   </CarouselItem>
